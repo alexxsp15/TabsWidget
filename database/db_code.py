@@ -36,6 +36,33 @@ def init_db():
     conn.commit()
     conn.close()
 
+def get_root_folders():
+    db = connect_to_db()
+    cursor = db.cursor()
+
+    cursor.execute("SELECT * FROM folder WHERE parent_folder_id IS NULL;")
+    folders = cursor.fetchall()
+    return folders
+
+def add_folder(folder_name, parent_folder_id):
+    db = connect_to_db()
+    cursor = db.cursor()
+
+    cursor.execute(
+        "INSERT INTO folder (folder_name, parent_folder_id) VALUES (?, ?)",
+        (folder_name, parent_folder_id)
+    )
+    db.commit()
+    db.close()
+
+def get_other_folders():
+    db = connect_to_db()
+    cursor = db.cursor()
+
+    cursor.execute("SELECT * FROM folder WHERE parent_folder_id IS NOT NULL;")
+    folders = cursor.fetchall()
+    return folders
+
 if __name__ == "__main__":
     init_db()
     print("Базу даних створено або оновлено ✅")
