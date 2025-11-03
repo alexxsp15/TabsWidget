@@ -1,8 +1,8 @@
 import sys
 import os
-from PyQt6.QtWidgets import QApplication, QMainWindow, QVBoxLayout, QHBoxLayout, QTreeView, QPushButton, QWidget, QLabel
+from PyQt6.QtWidgets import QApplication, QMainWindow, QVBoxLayout, QHBoxLayout, QTreeView, QPushButton, QWidget, QLabel, QToolBar
 from PyQt6.QtCore import Qt
-from PyQt6.QtGui import QStandardItemModel, QStandardItem
+from PyQt6.QtGui import QStandardItemModel, QStandardItem, QAction
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'database')))
 from database.db_code import add_folder, get_root_folders, get_other_folders
 
@@ -14,6 +14,8 @@ class MainWindow(QMainWindow):
         self.mainWidget = QWidget()
         self.mainLayout = QHBoxLayout()
 
+    #tool bar
+        toolbar = QToolBar()
     #model
         self.model = QStandardItemModel()
         self.model.setHorizontalHeaderLabels(["Name"])

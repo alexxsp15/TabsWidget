@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7a78afe4-e301-4aea-9637-dc36d0b08ebb" name="Changes" comment="created db">
-      <change afterPath="$PROJECT_DIR$/database/helper.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example.py" afterDir="false" />
+    <list default="true" id="7a78afe4-e301-4aea-9637-dc36d0b08ebb" name="Changes" comment="added virtual folders system">
+      <change afterPath="$PROJECT_DIR$/database/example2.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/db_code.py" beforeDir="false" afterPath="$PROJECT_DIR$/database/db_code.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -54,6 +52,7 @@
   "keyToString": {
     "Python.db_code.executor": "Run",
     "Python.example.executor": "Run",
+    "Python.example2.executor": "Run",
     "Python.helper.executor": "Run",
     "Python.main.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
@@ -85,11 +84,20 @@
       <option name="project" value="LOCAL" />
       <updated>1761826107808</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="added virtual folders system">
+      <option name="closed" value="true" />
+      <created>1762081147601</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1762081147601</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="created db" />
-    <option name="LAST_COMMIT_MESSAGE" value="created db" />
+    <MESSAGE value="added virtual folders system" />
+    <option name="LAST_COMMIT_MESSAGE" value="added virtual folders system" />
   </component>
 </project>
