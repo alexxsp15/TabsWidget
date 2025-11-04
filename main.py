@@ -1,8 +1,9 @@
 import sys
 import os
 from PyQt6.QtWidgets import QApplication, QMainWindow, QVBoxLayout, QHBoxLayout, QTreeView, QPushButton, QWidget, QLabel, QToolBar
-from PyQt6.QtCore import Qt
-from PyQt6.QtGui import QStandardItemModel, QStandardItem, QAction
+from PyQt6.QtCore import Qt, QModelIndex
+from PyQt6.QtGui import QStandardItemModel, QStandardItem, QAction, QIcon
+
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'database')))
 from database.db_code import add_folder, get_root_folders, get_other_folders
 
@@ -16,6 +17,13 @@ class MainWindow(QMainWindow):
 
     #tool bar
         toolbar = QToolBar()
+        toolbar.setMovable(False)
+        self.addToolBar(toolbar)
+
+    #addfolder_action
+        addfolder_action = QAction(QIcon(), "Add folder", self)
+        addfolder_action.triggered.connect(self.add_folder)
+        toolbar.addAction(addfolder_action)
     #model
         self.model = QStandardItemModel()
         self.model.setHorizontalHeaderLabels(["Name"])
@@ -35,6 +43,8 @@ class MainWindow(QMainWindow):
         self.mainWidget.setLayout(self.mainLayout)
         self.setCentralWidget(self.mainWidget)
 
+
+        self.folders_id = {}
     def data_into_model(self):
         id_to_item = {}
 
@@ -60,6 +70,30 @@ class MainWindow(QMainWindow):
                 self.model.appendRow(item)
 
             id_to_item[id_] = item
+
+        self.folders_id = id_to_item
+        print(self.folders_id)
+
+
+    def add_folder(self):
+        print("start")
+        selected_index = self.tree.selectedIndexes()
+        selected_id = None
+        if not selected_index:
+            print("nah")
+        else:
+            selected_folder = self.model.itemFromIndex(selected_index[0])
+            print("stuck here")
+            for id, item in self.folders_id.items():
+                if selected_folder == item:
+                    print(id)
+                    add_folder("new_one", id)
+                    self.tree.update()
+                    print("slay!")
+                else: print("nah2")
+        print("end")
+
+
 
 
 app = QApplication(sys.argv)
