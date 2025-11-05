@@ -15,7 +15,7 @@ def init_db():
             id_folder INTEGER PRIMARY KEY AUTOINCREMENT,
             folder_name TEXT UNIQUE NOT NULL,
             parent_folder_id INTEGER,
-            FOREIGN KEY (parent_folder_id) REFERENCES folder(id_folder) ON DELETE SET NULL
+            FOREIGN KEY (parent_folder_id) REFERENCES folder(id_folder) ON DELETE CASCADE
         );
     """)
 
@@ -62,6 +62,39 @@ def get_other_folders():
     cursor.execute("SELECT * FROM folder WHERE parent_folder_id IS NOT NULL;")
     folders = cursor.fetchall()
     return folders
+
+def delete_folder(folder_id):
+    db = connect_to_db()
+    cursor = db.cursor()
+
+    cursor.execute("SELECT id_folder FROM folder WHERE parent_folder_id = ?", (folder_id,))
+    child_folders = cursor.fetchall()
+
+    for child in child_folders:
+        delete_folder(child[0])
+
+    cursor.execute("DELETE FROM folder WHERE id_folder = ?", (folder_id,))
+
+    db.commit()
+    db.close()
+
+def add_tab(name, link, folder):
+    db = connect_to_db()
+    cursor = db.cursor()
+
+    cursor.execute("INSERT INTO tab (tab_name, tab_link, id_folder) VALUES (?, ?, ?)", (name, link, folder,))
+
+    db.commit()
+    db.close()
+
+def get_all_tabs():
+    db = connect_to_db()
+    cursor = db.cursor()
+
+    cursor.execute("SELECT * FROM tab;")
+
+    tabs = cursor.fetchall()
+    return tabs
 
 if __name__ == "__main__":
     init_db()

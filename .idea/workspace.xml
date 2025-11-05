@@ -4,9 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7a78afe4-e301-4aea-9637-dc36d0b08ebb" name="Changes" comment="created toolbar">
-      <change afterPath="$PROJECT_DIR$/database/example2.py" afterDir="false" />
+    <list default="true" id="7a78afe4-e301-4aea-9637-dc36d0b08ebb" name="Changes" comment="started working on a add_folder function">
+      <change afterPath="$PROJECT_DIR$/example_dialog.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/db_code.py" beforeDir="false" afterPath="$PROJECT_DIR$/database/db_code.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/helper.py" beforeDir="false" afterPath="$PROJECT_DIR$/database/helper.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -53,6 +55,7 @@
     &quot;Python.db_code.executor&quot;: &quot;Run&quot;,
     &quot;Python.example.executor&quot;: &quot;Run&quot;,
     &quot;Python.example2.executor&quot;: &quot;Run&quot;,
+    &quot;Python.example_dialog.executor&quot;: &quot;Run&quot;,
     &quot;Python.helper.executor&quot;: &quot;Run&quot;,
     &quot;Python.main.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
@@ -100,13 +103,22 @@
       <option name="project" value="LOCAL" />
       <updated>1762160838274</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="started working on a add_folder function">
+      <option name="closed" value="true" />
+      <created>1762270796872</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1762270796872</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="created db" />
     <MESSAGE value="added virtual folders system" />
     <MESSAGE value="created toolbar" />
-    <option name="LAST_COMMIT_MESSAGE" value="created toolbar" />
+    <MESSAGE value="started working on a add_folder function" />
+    <option name="LAST_COMMIT_MESSAGE" value="started working on a add_folder function" />
   </component>
 </project>
