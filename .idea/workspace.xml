@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7a78afe4-e301-4aea-9637-dc36d0b08ebb" name="Changes" comment="started working on a add_folder function">
-      <change afterPath="$PROJECT_DIR$/example_dialog.py" afterDir="false" />
+    <list default="true" id="7a78afe4-e301-4aea-9637-dc36d0b08ebb" name="Changes" comment="delete folder action + adding tabs">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/db_code.py" beforeDir="false" afterPath="$PROJECT_DIR$/database/db_code.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/helper.py" beforeDir="false" afterPath="$PROJECT_DIR$/database/helper.py" afterDir="false" />
@@ -111,7 +110,15 @@
       <option name="project" value="LOCAL" />
       <updated>1762270796872</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="delete folder action + adding tabs">
+      <option name="closed" value="true" />
+      <created>1762360769362</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1762360769362</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -119,6 +126,7 @@
     <MESSAGE value="added virtual folders system" />
     <MESSAGE value="created toolbar" />
     <MESSAGE value="started working on a add_folder function" />
-    <option name="LAST_COMMIT_MESSAGE" value="started working on a add_folder function" />
+    <MESSAGE value="delete folder action + adding tabs" />
+    <option name="LAST_COMMIT_MESSAGE" value="delete folder action + adding tabs" />
   </component>
 </project>

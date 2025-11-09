@@ -96,6 +96,15 @@ def get_all_tabs():
     tabs = cursor.fetchall()
     return tabs
 
+def get_tab_by_id(id):
+    db = connect_to_db()
+    cursor = db.cursor()
+
+    cursor.execute(f"SELECT * FROM tab WHERE id_tab = {id};")
+    info = cursor.fetchall()
+
+    return info
+
 if __name__ == "__main__":
     init_db()
     print("Базу даних створено або оновлено ✅")
