@@ -1,0 +1,24 @@
+QTreeView {
+background-color: #242424;
+color: #DBDBDB;
+border: 0px solid #242424;
+border-radius: 0px;
+font-size: 19px;
+}
+
+QTreeView::item {
+height: 30px;
+padding: 2px;
+border: none;
+}
+
+QTreeView::item::hover {
+border: none;
+background-color: #3B3B3B;
+}
+
+QTreeView::item::selected {
+border: none;
+}
+
+QTreeView::item:

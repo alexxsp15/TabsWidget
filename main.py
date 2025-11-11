@@ -8,6 +8,16 @@ from PyQt6.QtGui import QStandardItemModel, QStandardItem, QAction, QIcon
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'database')))
 from database.db_code import add_folder, get_root_folders, get_other_folders, delete_folder, get_all_tabs, add_tab, get_tab_by_id
 
+
+def load_stylesheet(filename):
+    """Завантажує QSS файл з папки styles"""
+
+    base_dir = os.path.dirname(__file__)
+    style_path = os.path.join(base_dir, "styles", filename)
+    with open(style_path, "r", encoding="utf-8") as f:
+        return f.read()
+
+
 class MyTabs(QTabWidget):
     def __init__(self):
         super().__init__()
@@ -117,6 +127,7 @@ class MainWindow(QMainWindow):
 
     #main widget
         self.mainWidget = QWidget()
+        self.mainWidget.setStyleSheet("background-color: #0D0D0D;")
         self.mainLayout = QHBoxLayout()
 
     #tool bar
@@ -148,10 +159,10 @@ class MainWindow(QMainWindow):
         self.tree.setHeaderHidden(True)
         self.tree.setModel(self.model)
         self.tree.selectionModel().selectionChanged.connect(self.show_tab)
+        self.tree.setStyleSheet(load_stylesheet("tree.qss"))
 
     # tabWidget
         self.tabs = MyTabs()
-
 
     #mainLayout
         self.mainLayout.addWidget(self.tree)
@@ -173,6 +184,7 @@ class MainWindow(QMainWindow):
             item = QStandardItem(name)
             item.setEditable(True)
             item.setData(id_, Qt.ItemDataRole.UserRole)
+            item.setData("folder", Qt.ItemDataRole.UserRole + 1)
             self.model.appendRow(item)
             id_to_item[id_] = item
 
@@ -183,6 +195,7 @@ class MainWindow(QMainWindow):
             item = QStandardItem(name)
             item.setEditable(True)
             item.setData(id_, Qt.ItemDataRole.UserRole)
+            item.setData("folder", Qt.ItemDataRole.UserRole + 1)
 
             if parent_id in id_to_item:
                 id_to_item[parent_id].appendRow(item)
@@ -191,7 +204,7 @@ class MainWindow(QMainWindow):
 
             id_to_item[id_] = item
 
-        #now folders
+        #now tabs
         tabs = get_all_tabs()
         id_to_tab = {}
         for tab in tabs:
@@ -201,6 +214,7 @@ class MainWindow(QMainWindow):
             item = QStandardItem(name)
             item.setEditable(True)
             item.setData(id_, Qt.ItemDataRole.UserRole)
+            item.setData("tab", Qt.ItemDataRole.UserRole + 1)
 
             if parent_id in id_to_item:
                 id_to_item[parent_id].appendRow(item)
@@ -289,11 +303,13 @@ class MainWindow(QMainWindow):
         print("end")
 
     def show_tab(self):
-        i = self.tree.selectedIndexes()
-        selected_id = self.model.itemFromIndex(i[0])
-        id = selected_id.data(Qt.ItemDataRole.UserRole)
-        print(id)
-        self.tabs.add_tab(id)
+        index = self.tree.selectedIndexes()[0]
+        item = self.model.itemFromIndex(index)
+        id_ = item.data(Qt.ItemDataRole.UserRole)
+        item_type = item.data(Qt.ItemDataRole.UserRole + 1)
+
+        if item_type == "tab":
+            self.tabs.add_tab(id_)
 
 
 app = QApplication(sys.argv)
