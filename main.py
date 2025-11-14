@@ -1,7 +1,7 @@
 import sys
 import os
 from PyQt6.QtWidgets import QApplication, QMainWindow, QVBoxLayout, QHBoxLayout, QTreeView, QPushButton, QWidget, \
-    QLabel, QToolBar, QDialog, QLayout, QLineEdit, QDialogButtonBox, QTabWidget
+    QLabel, QToolBar, QDialog, QLayout, QLineEdit, QDialogButtonBox, QTabWidget, QAbstractItemView
 from PyQt6.QtCore import Qt, QModelIndex, QSize
 from PyQt6.QtGui import QStandardItemModel, QStandardItem, QAction, QIcon
 
@@ -24,6 +24,7 @@ class MyTabs(QTabWidget):
 
         self.setMovable(True)
         self.setMinimumSize(QSize(500, 600))
+        self.visible_tabs = []
 
     #adding tab
     def add_tab(self, id_):
@@ -39,10 +40,18 @@ class MyTabs(QTabWidget):
         layout = QVBoxLayout()
 
         title_label = QLabel(name)
-        link_label = QLabel(link)
+        title_label.setStyleSheet("""QLabel {
+            font-size: 40px;
+            font-weight: bold;    
+            }""")
 
-        layout.addWidget(title_label)
-        layout.addWidget(link_label)
+        link_label = QLabel(link)
+        link_label.setStyleSheet("""QLabel {
+            font-size: 25px;  
+            }""")
+
+        layout.addWidget(title_label, alignment=Qt.AlignmentFlag.AlignCenter | Qt.AlignmentFlag.AlignTop)
+        layout.addWidget(link_label, alignment=Qt.AlignmentFlag.AlignCenter | Qt.AlignmentFlag.AlignTop)
 
         widget.setLayout(layout)
 
@@ -159,6 +168,9 @@ class MainWindow(QMainWindow):
         self.tree.setHeaderHidden(True)
         self.tree.setModel(self.model)
         self.tree.selectionModel().selectionChanged.connect(self.show_tab)
+        self.tree.setUniformRowHeights(True)
+        self.tree.setAnimated(True)
+        self.tree.edited
         self.tree.setStyleSheet(load_stylesheet("tree.qss"))
 
     # tabWidget
@@ -309,8 +321,16 @@ class MainWindow(QMainWindow):
         item_type = item.data(Qt.ItemDataRole.UserRole + 1)
 
         if item_type == "tab":
-            self.tabs.add_tab(id_)
-
+            if id_ in self.tabs.visible_tabs:
+                cur_id = self.tabs.visible_tabs.index(id_, 0, len(self.tabs.visible_tabs))
+                self.tabs.setCurrentIndex(cur_id)
+            else:
+                print("starting")
+                self.tabs.add_tab(id_)
+                self.tabs.visible_tabs.append(id_)
+                cur_id = len(self.tabs.visible_tabs) - 1
+                self.tabs.setCurrentIndex(cur_id)
+                print("ending")
 
 app = QApplication(sys.argv)
 window = MainWindow()

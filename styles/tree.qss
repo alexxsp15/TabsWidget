@@ -2,23 +2,32 @@ QTreeView {
 background-color: #242424;
 color: #DBDBDB;
 border: 0px solid #242424;
-border-radius: 0px;
+border-radius: 5px;
 font-size: 19px;
+}
+
+QTreeView {
+    outline: 0;
 }
 
 QTreeView::item {
 height: 30px;
 padding: 2px;
 border: none;
+border-radius: 5px;
 }
 
 QTreeView::item::hover {
-border: none;
 background-color: #3B3B3B;
+border-radius: 5px;
 }
 
-QTreeView::item::selected {
+QTreeView::item:selected {
 border: none;
+border-radius: 5px;
 }
 
-QTreeView::item:
+QTreeView::item:selected {
+border: none;
+border-radius: 5px;
+}

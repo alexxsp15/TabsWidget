@@ -4,10 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7a78afe4-e301-4aea-9637-dc36d0b08ebb" name="Changes" comment="added tab widget">
-      <change afterPath="$PROJECT_DIR$/styles/tree.qss" afterDir="false" />
+    <list default="true" id="7a78afe4-e301-4aea-9637-dc36d0b08ebb" name="Changes" comment="0">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/db_code.py" beforeDir="false" afterPath="$PROJECT_DIR$/database/db_code.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/helper.py" beforeDir="false" afterPath="$PROJECT_DIR$/database/helper.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/styles/tree.qss" beforeDir="false" afterPath="$PROJECT_DIR$/styles/tree.qss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -125,7 +127,15 @@
       <option name="project" value="LOCAL" />
       <updated>1762681754427</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="0">
+      <option name="closed" value="true" />
+      <created>1762858186594</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1762858186594</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -135,6 +145,7 @@
     <MESSAGE value="started working on a add_folder function" />
     <MESSAGE value="delete folder action + adding tabs" />
     <MESSAGE value="added tab widget" />
-    <option name="LAST_COMMIT_MESSAGE" value="added tab widget" />
+    <MESSAGE value="0" />
+    <option name="LAST_COMMIT_MESSAGE" value="0" />
   </component>
 </project>

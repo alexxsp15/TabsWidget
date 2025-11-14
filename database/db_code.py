@@ -73,6 +73,8 @@ def delete_folder(folder_id):
     for child in child_folders:
         delete_folder(child[0])
 
+    cursor.execute(f"DELETE FROM tab WHERE id_folder = {folder_id};")
+
     cursor.execute("DELETE FROM folder WHERE id_folder = ?", (folder_id,))
 
     db.commit()
@@ -105,6 +107,14 @@ def get_tab_by_id(id):
 
     return info
 
+def delete_tab(id):
+    db = connect_to_db()
+    cursor = db.cursor()
+
+    cursor.execute(f"DELETE FROM tab WHERE id_tab = {id}")
+
+    db.commit()
+    db.close()
 if __name__ == "__main__":
     init_db()
     print("Базу даних створено або оновлено ✅")
